@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>portfolio</title>
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- Swiper (CSS) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Swiper (JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!------------------- 로딩 ------------------->
+  <div id="loading-overlay">
+    <svg id="loading-line-svg" width="400" height="1" viewBox="0 0 800 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line id="loading-line" x1="-218" y1="0.5" x2="800" y2="0.499934" stroke="white"/>
+    </svg>
+
+    <div id="loading-text">Mina Portfolio</div> 
+  </div>
+
+  <!------------------- header ------------------->
+  <header id="header" class="sec">
+    <div class="header-content-wrap">
+      <div class="logo-box"><a class="logo" id="final-logo" href="#banner">MINA</a></div>
+      <nav class="menu-box">
+        <ul>
+          <li><a href="#profile">ABOUT ME</a></li>
+          <li><a href="#index">INDEX</a></li>
+          <li><a href="#branding">BRANDING</a></li>
+          <li><a href="#redesign">REDESIGN</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="roding-box"><a class="r" href="#"><img src="./imgs/roding.png" alt="로딩페이지 이동"></a></div>
+    </div>
+  </header>
+
+  <main>
+    <!------------------- banner ------------------->
+    <section id="banner" class="sec">
+      <div class="con con-1">
+        <div class="banner-title"><p>PORTFOLIO</p></div>
+      </div>
+    </section>
+
+    <!------------------- profile ------------------->
+    <section id="profile" class="sec">
+      <div class="con con-2">
+        <!-- 프로필 -->
+        <div class="con-2_profile-wrap">
+          <!-- 나에 대하여 -->
+          <div class="profile profile-left">
+            <div class="picture-box"><img src="./imgs/profile-mina.jpg" loading="lazy" fade="up" data-delay="0.6" alt="프로필사진"></div>
+            <div class="profile-info-box">
+              <div class="info-1">
+                <h1 class="name">배미나<span>Bae Mina</span></h1>
+              </div>
+              <div class="info-2">
+                <span class="contact-label-1">Birth.</span>
+                <span class="contact-value">2002 . 04 . 02</span>
+              </div>
+              <div class="info-3">
+                <span class="contact-label-2">Mobile.</span>
+                <span class="contact-value">010 - 4966 - 1923</span>
+              </div>
+              <div class="info-4">
+                <span class="contact-label-3">Mail.</span>
+                <span class="contact-value">nadaon.430@naver.com</span>
+              </div>
+              <div class="info-5">
+                <span class="contact-label">Tool</span>
+                <div class="tool-section">
+                  <div class="tool-list">
+                    <span class="tool-icon">Fi</span>
+                    <span class="tool-icon">Ps</span>
+                    <span class="tool-icon">Ai</span>
+                    <span class="tool-icon">Pr</span>
+                    <span class="tool-icon">Ae</span>
+			              <span class="tool-icon tool-icon-6">HTML</span>
+                    <span class="tool-icon tool-icon-6">CSS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-right">
+            <div class="slogan" fade="right" data-delay="0.6">
+              <span>멈추지 않는 흐름</span>을 설계하여,
+              <br><span>가치를 증명하는</span> 디자이너 <span>배미나입니다.</span>
+            </div>
+            <div class="data-box">
+              <!-- 정보 1 -->
+              <div class="data">
+                <!-- 학력 -->
+                <div class="education-box">
+                  <h3 class="section-heading">EDUCATION</h3>
+                  <div class="list-item">
+                    <div class="list-item-1">
+                      <span class="item-date">2025 . 09</span>
+                      <span class="item-date">2025 . 08 </span>
+                      <span class="item-date">2021 . 02</span>
+                      <span class="item-date">2018 . 02</span>
+                    </div>
+                    <div class="list-item-2">
+                      <span class="item-description">UIUX 웹퍼블리셔 양성과정</span>
+                      <span class="item-description">국립한밭대학교 졸업</span>
+                      <span class="item-description">대성여자고등학교 졸업</span>
+                      <span class="item-description">충남여자중학교 졸업</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- 자격증 -->
+                <div class="qualifications-box">
+                  <h3 class="section-heading">QUALIFICATIONS</h3>
+                  <div class="list-item">
+                    <div class="list-item-1">
+                      <span class="item-date1">2025.08</span>
+                      <span class="item-date1">2025.08</span>
+                      <span class="item-date">2025.04</span>
+                      <span class="item-date">2022.04</span>
+                      <span class="item-date">2018.08</span>
+                      <span class="item-date">2018.05</span>
+                      <span class="item-date">2018.03</span>
+                      <span class="item-date">2018.03</span>
+                    </div>
+                    <div class="list-item-2">
+                      <span class="item-description1">Adobe Certified Professional<br> : Illustrator CC 2023</span>
+                      <span class="item-description1">Adobe Certified Professional<br> : Photoshop CC 2023</span>
+                      <span class="item-description">웹디자인 기능사 필기</span>
+                      <span class="item-description">운전면허 2종 보통</span>
+                      <span class="item-description">ERP 회계 2급</span>
+                      <span class="item-description">정보기술자격(ITQ) 아래한글</span>
+                      <span class="item-description">정보기술자격(ITQ) 한글파워포인트</span>
+                      <span class="item-description">정보기술자격(ITQ) 한글엑셀</span>
+                    </div>   
+                    </div>
+                </div>
+              </div>
+                
+              <!-- 정보 2 -->
+              <div class="data-2">
+                <div class="awards-section">
+                  <h3 class="section-heading">AWARDS</h3>
+                  <div class="list-item">
+                    <div class="list-item-1">
+                      <span class="item-date">2022.11</span>
+                      <span class="item-date">2022.11</span>
+                      <span class="item-date">2022.11</span>
+                      <span class="item-date">2022.09</span>
+                    </div>
+                    <div class="list-item-2">
+                      <span class="item-description">대전 서구 콘텐츠 공모전 _ 장려상</span>
+                      <span class="item-description">충남산업디자인대전 도내시각기업지원 _ 특선</span>
+                      <span class="item-description">충남산업디자인대전 도내시각기업지원_ 입선</span>
+                      <span class="item-description">제 20회 옥외광고대상전 창작디자인 부문 _ 동상</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+      </div>
+    </section>
+
+    <!------------------- index ------------------->
+    <section id="index" class="sec">
+      <div class="con con-3" fade="up" data-delay="0.3">
+        <div class="index-left">
+          <div class="left-text"><p>Index.</p></div>
+        </div>
+        <div class="index-right">
+          <ul class="list-box">
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/memento.png" alt="memento">
+              <div class="list-text">
+                <div class="text text-1"><span>01-1</span></div>
+                <div class="text text-2"><span>Web Branding</span></div>
+                <div class="text text-3"><span>memento</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/weave.png" alt="weave">
+              <div class="list-text">
+                <div class="text text-1"><span>01-2</span></div>
+                <div class="text text-2"><span></span></div>
+                <div class="text text-3"><span>weave</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/BANGGEUT.png" alt="BANGGEUT">
+              <div class="list-text">
+                <div class="text text-1"><span>01-3</span></div>
+                <div class="text text-2"><span>APP Branding</span></div>
+                <div class="text text-3"><span>BANGGEUT</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/Nikon.png" alt="Nikon">
+              <div class="list-text">
+                <div class="text text-1"><span>01-4</span></div>
+                <div class="text text-2"><span>Web</span></div>
+                <div class="text text-3"><span>Nikon</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/29cm.png" alt="29cm">
+              <div class="list-text">
+                <div class="text text-1"><span>01-5</span></div>
+                <div class="text text-2"><span></span></div>
+                <div class="text text-3"><span>29cm</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/sec sec-1.png" alt="COSRX">
+              <div class="list-text">
+                <div class="text text-1"><span>01-6</span></div>
+                <div class="text text-2"><span></span></div>
+                <div class="text text-3"><span>COSRX</span></div>
+              </div>
+            </li>
+
+            <li class="list">
+              <img class="swipeimage" src="./imgs/duover.png" alt="duover">
+              <div class="list-text">
+                <div class="text text-1"><span>01-7</span></div>
+                <div class="text text-2"><span></span></div>
+                <div class="text text-3"><span>duover</span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!------------------- branding ------------------->
+    <section id="branding" class="sec">
+      <div class="con con-4">
+        <div class="branding-title-box">
+          <button class="branding-ti-cat">BRANDING</button>
+          <div class="branding-ti">memento</div>
+          <div class="branding-ti-sub">일상에서의 휴식처 & 자아 탐색 카페</div>
+        </div>
+        <div class="branding-top" fade="up" data-delay="0.1">
+          <div class="project-info-box">
+            <div class="project-info-name">
+              <span class="info-name">DATE.</span>
+              <span class="info-name">WORK.</span>
+              <span class="info-name">TOOL.</span>
+            </div>
+            <div class="project-info-txt">
+              <p class="info-txt">2025.08 ~ 2025.09 (4주)</p>
+              <p class="info-txt">기여도 40% / 4인 팀 프로젝트</p>
+              <p class="info-txt-3">Figma &nbsp;Ai&nbsp; Ps&nbsp; CSS&nbsp; HTML<br>Java Script&nbsp; Git / GitHub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="branding-bottom" fade="up" data-delay="0.1">
+          <div class="btn-group">
+          <button class="btn-1"><a href="./imgs/memento.pdf" loading="lazy" target="_blank">Design</a></button>
+          <button class="btn-2"><a href="./imgs/memento-process.pdf" loading="lazy" target="_blank">Process</a></button>
+         </div>
+      </div>
+    </section>
+
+    <!------------------- branding-2 ------------------->
+    <section id="branding-2" class="sec">
+      <div class="con con-5">
+        <div class="branding-title-box-2">
+          <button class="branding-ti-cat">BRANDING</button>
+          <div class="branding-ti">weave</div>
+          <div class="branding-ti-sub">관계 맞춤형 소통 플랫폼</div>
+        </div>
+        <div class="branding-top-2" fade="up" data-delay="0.2">
+          <div class="project-info-box-2">
+            <div class="project-info-name-2">
+              <span class="info-name">DATE.</span>
+              <span class="info-name">WORK.</span>
+              <span class="info-name">TOOL.</span>
+            </div>
+            <div class="project-info-txt-2">
+              <p class="info-txt">2025.04 ~ 2025.05 (4주)</p>
+              <p class="info-txt">기여도 40% / 4인 팀 프로젝트</p>
+              <p class="info-txt-3">Figma &nbsp;Ai&nbsp; Ps&nbsp; CSS&nbsp; HTML<br>Java Script&nbsp; Git / GitHub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="branding-bottom-2"  fade="up" data-delay="0.2">
+          <div class="btn-group-2">
+          <button class="btn-1"><a href="https://mina2042.github.io/weave-project/" target="_blank">Design</a></button>
+         </div>
+      </div>
+    </section>
+
+    <!------------------- branding-3 ------------------->
+    <section id="branding-3" class="sec">
+      <div class="con con-6">
+        <div class="branding-title-box">
+          <button class="branding-ti-cat">BRANDING</button>
+          <div class="branding-ti">BANGGEUT</div>
+          <div class="branding-ti-sub">자취 생활 케어 솔루션 플랫폼</div>
+        </div>
+        <div class="branding-top-3"  fade="up" data-delay="0.2">
+          <div class="project-info-box-3">
+            <div class="project-info-name-3">
+              <span class="info-name">DATE.</span>
+              <span class="info-name">WORK.</span>
+              <span class="info-name">TOOL.</span>
+            </div>
+            <div class="project-info-txt-3">
+              <p class="info-txt">2025.07 ~ 2025.08 (4주)</p>
+              <p class="info-txt">기여도 40% / 4인 팀 프로젝트</p>
+              <p class="info-txt-3">Figma &nbsp;Ai&nbsp; Ps&nbsp; CSS&nbsp; HTML<br>Java Script&nbsp; Git / GitHub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="branding-bottom-3"  fade="up" data-delay="0.2">
+          <div class="btn-group-3">
+          <button class="btn-2"><a href="https://mina2042.github.io/banggeut-project/" target="_blank">Process</a></button>
+         </div>
+      </div>
+    </section>
+
+    <!------------------- redesign ------------------->
+    <section id="redesign" class="sec">
+      <div class="pop-up__inner">
+        <!-- 타이틀 -->
+         <button class="tag-chip" fade="up" data-delay="0.2" >Product
+          <sup>4</sup>
+         </button>
+         <div class="pop-up__title-area">
+            <h2 class="pop-up__title" fade="up" data-delay="0.2">Web Redesign.</h2>
+            <p class="pop-up__desc" fade="right" data-delay="0.2">브랜딩에 목적에 맞춰 브랜드 톤 앤 매너에 만들고 다양한 시각콘텐츠를 제작했습니다. 로고부터 메인 배너,에 이르기까지, 콘텐츠별로 레이아웃과 타이포그래피를 다르게 구성하여 브랜드의 다양한 무드와 확장성을 효과적으로 보여줍니다.</p>
+         </div>
+         <!-- 콘텐츠 슬라이더 -->
+         <div class="swiper detail-swiper">
+          <ul class="swiper-wrapper pop-up__list">
+            <li class="swiper-slide pop-up__item swiper-slide-prev">
+              <article class="pop-up__card">
+                <figure class="pop-up__thumb">
+                  <img src="./imgs/cosrx.webp" loading="lazy" alt="코스알엑스 디자인">
+
+                  <a class="pop-up__overlay" href="javascript:void(0);">
+                    <div class="hover-contents">
+                      <span class="view-text open-popup" 
+                            data-type="DESIGN"
+                            data-title="COSRX Redesign" 
+                            data-img="./imgs/cosrx.webp"
+                            data-desc="코스알엑스의 브랜드 정체성인 진정성과 효능을 강조하기 위해 극도의 미니멀리즘 레이아웃을 채택했습니다. 전체적으로 넓은 화이트 스페이스를 활용하여 사용자가 제품의 성분과 텍스처에만 온전히 집중할 수 있도록 유도했으며, 정제된 타이포그래피를 통해 전문가적인 신뢰감을 주는 시각 시스템을 구축했습니다. 여백의 미를 극대화하여 제품의 본질에 집중시키고자 디자인했습니다.">Show Design</span>
+                            
+                      <div class="line"></div>
+                      
+                      <span class="view-text open-popup" 
+                            data-type="PROCESS"
+                            data-title="COSRX Process" 
+                            data-img="./imgs/cosrx-process.jpg"
+                            data-desc="사용자 경험을 중심으로 한 미니멀리즘 인터페이스를 설계를 목표로
+
+                            민감성 피부를 위한 저자극 브랜드의 아이덴티티를 분석하고, 기존의 복잡한 스킨케어 루틴을 시각적으로 단순화할 수 있는 방향성을 도출했습니다.
+
+                            제품의 제형(Texture)과 성분을 강조하기 위해 고해상도 매크로 이미지를 메인으로 배치하고, 화이트 스페이스를 충분히 활용하여 청결함과 신뢰감을 전달하고자 했습니다.
+
+                            사용자가 자신의 피부 타입에 맞는 솔루션을 빠르게 찾을 수 있도록 'Skin Quiz' 기능이나 성분별 필터링 시스템을 설계하여 정보 탐색 효율성을 극대화하려고 디자인했습니다.">Show Process</span>
+                    </div>  
+                  </a>
+                </figure>
+                <div class="pop-up__info">
+                  <h3 class="pop-up__name">COSRX Redesign</h3>
+                  <p class="pop-up__sub">넓은 화이트 스페이스와 섬세한 텍스처 컷을 활용했습니다. 브랜드의 신뢰감을 높이는 미니멀한 시스템으로 제품의 가치를 명확히 전달합니다.</p>
+                </div>
+              </article>
+            </li>
+
+            <li class="swiper-slide pop-up__item swiper-slide-prev">
+              <article class="pop-up__card">
+                <figure class="pop-up__thumb">
+                  <img src="./imgs/nikon.jpg" alt="니콘 디자인">
+
+                  <a class="pop-up__overlay" href="javascript:void(0);">
+                    <div class="hover-contents">
+                      <span class="view-text open-popup" 
+                            data-type="DESIGN"
+                            data-title="Nikon Redesign" 
+                            data-img="./imgs/nikon.jpg"
+                            data-desc="광학 기술의 정점에 있는 니콘의 전문성을 시각화하기 위해 블랙 배경과 강렬한 대비를 활용한 다크 모드 디자인을 적용했습니다. Z 시리즈의 압도적인 퍼포먼스가 느껴지도록 큼직한 제품 컷과 볼드한 타이포그래피를 배치했으며, 기능적인 정보들을 정교한 그리드 시스템 안에 가독성 있게 정리하여 카메라 전문가를 위한 도구적 가치를 전달하고자 했습니다.">Show Design</span>
+                            
+                      <div class="line"></div>
+                      
+                      <span class="view-text open-popup" 
+                            data-type="PROCESS"
+                            data-title="Nikon Process" 
+                            data-img="./imgs/nikon-process.jpg"
+                            data-desc="전문성과 기술력을 담아내는 정교한 그리드 시스템을 위해서
+
+                            니콘 Z9 등 플래그십 기종의 성능을 시각적으로 증명하기 위해, 결과물(사진)의 퀄리티를 최우선으로 보여주는 갤러리 중심 레이아웃을 이용했습니다.
+
+                            기계적인 정밀함을 표현하기 위해 엄격한 12컬럼 그리드를 적용하고, 블랙&골드의 브랜드 컬러를 통해 프리미엄 광학 기기 브랜드의 권위를 상징했습니다.
+                            ">Show Process</span>
+                    </div>  
+                  </a>
+                </figure>
+                <div class="pop-up__info">
+                  <h3 class="pop-up__name">Nikon Redesign</h3>
+                  <p class="pop-up__sub">임팩트 있는 메인 비주얼 아래로 작은 그리드를 조밀하게 배치해, 방대한 정보를 체계적이고 전문적으로 전달하는 구조의 디자인입니다.</p>
+                </div>
+              </article>
+            </li>
+
+            <li class="swiper-slide pop-up__item swiper-slide-prev">
+              <article class="pop-up__card">
+                <figure class="pop-up__thumb">
+                  <img src="./imgs/29cm.jpg" alt="29CM 디자인">
+
+                  <a class="pop-up__overlay" href="javascript:void(0);">
+                    <div class="hover-contents">
+                      <span class="view-text open-popup" 
+                            data-type="DESIGN"
+                            data-title="29CM Redesign" 
+                            data-img="./imgs/29cm.jpg"
+                            data-desc="단순한 쇼핑몰을 넘어 하나의 라이프스타일 매거진처럼 느껴지도록 에디토리얼 디자인 방식을 사용했습니다. 일관된 상품 나열 방식에서 벗어나, 고감도 화보와 스토리텔링이 담긴 카피를 교차 배치하여 사용자가 브랜드의 무드를 경험하며 자연스럽게 제품에 스며들도록 기획했습니다. '가이드 쇼퍼'로서의 29CM만의 감도 높은 큐레이션 능력을 시각화하는 데 집중했습니다.">Show Design</span>
+                            
+                      <div class="line"></div>
+                      
+                      <span class="view-text open-popup" 
+                            data-type="PROCESS"
+                            data-title="29CM Process" 
+                            data-img="./imgs/29cm-process.jpg"
+                            data-desc="콘텐츠와 커머스의 경계를 허무는 가이드 지향적 쇼핑 경험을 목표로
+                            
+                            단순 판매가 아닌 '가이드' 역할을 수행하는 29CM의 톤앤매너를 유지하며, 매거진 형태의 레이아웃을 웹 환경에 최적화하여 설계하였습니다.
+
+                            감도 높은 브랜드 스토리가 제품 구매로 자연스럽게 연결될 수 있도록 비대칭 그리드와 세리프 폰트를 혼용하여 세련된 분위기를 조성합니다.
+                      
+                            모바일 퍼스트 환경을 고려하여 썸네일의 비율을 다양화하고, 스크롤 인터랙션을 통해 사용자가 한 권의 잡지를 읽는 듯한 몰입감을 제공하려고 했습니다.
+                            ">Show Process</span>
+                    </div>  
+                  </a>
+                </figure>
+                <div class="pop-up__info">
+                  <h3 class="pop-up__name">29CM Redesign</h3>
+                  <p class="pop-up__sub">감도 높은 사진을 잡지 화보처럼 배치해, 딱딱한 사양 설명 대신 일상 속 제품의 가치를 직관적으로 전달하는 스토리 중심 디자인입니다.</p>
+                </div>
+              </article>
+            </li>
+
+            <li class="swiper-slide pop-up__item swiper-slide-prev">
+              <article class="pop-up__card">
+                <figure class="pop-up__thumb">
+                  <img src="./imgs/duover.jpg" alt="duover 디자인">
+
+                  <a class="pop-up__overlay" href="javascript:void(0);">
+                    <div class="hover-contents">
+                      <span class="view-text open-popup" 
+                            data-type="DESIGN"
+                            data-title="duover Redesign" 
+                            data-img="./imgs/duover.jpg"
+                            data-desc="스트릿 감성과 아티스트적인 독창성을 표현하기 위해 형광 네온 컬러와 과감한 레이아웃을 사용했습니다. 기존 프레임을 파괴하는 불규칙한 이미지 배치와 역동적인 그래픽 요소를 결합하여 듀오버만의 개성 있는 브랜드 아이덴티티를 강조했습니다. MZ세대의 취향을 저격할 수 있는 힙한 비주얼과 인터랙티브한 요소들을 통해 브랜드의 확장성을 실험적으로 표현했습니다.">Show Design</span>
+                            
+                      <div class="line"></div>
+                      
+                      <span class="view-text open-popup" 
+                            data-type="PROCESS"
+                            data-title="duover Process" 
+                            data-img="./imgs/duover-process.jpg"
+                            data-desc="독창적인 아티스트적 감성과 디지털 인터랙션의 결합을 목표로 하여
+                            
+                            정형화된 기업형 레이아웃을 탈피하고, 네온 그린 포인트 컬러와 다크 모드를 대조시켜 아방가르드하고 힙한 브랜드 이미지를 구축하려고 했습니다.
+
+                            그리고, 아티스트의 사진과 영상을 과감하게 배치하며, 마우스 호버 효과나 패럴랙스 스크롤링을 적용하여 역동적인 사용자 반응 유도하고자 했습니다.
+                            ">Show Process</span>
+                    </div>  
+                  </a>
+                </figure>
+                <div class="pop-up__info">
+                  <h3 class="pop-up__name">duover Redesign</h3>
+                  <p class="pop-up__sub">큰 텍스트와 개성 있는 폰트, 강렬한 컬러 대비를 활용해 페이지에 리듬감을 주며 시선을 사로잡는 힙하고 현대적인 분위기의 디자인입니다.</p>
+                </div>
+              </article>
+            </li>
+            
+          </ul>
+          <div class="swiper-scrollbar detail__scrollbar">
+            <div class="swiper-scrollbar-drag"></div>
+          </div>
+         </div> 
+        
+      </div>
+    </section>
+  </main>
+
+  <!------------------- footer ------------------->
+  <footer id="contact">
+    <div class="con con-8">
+      <svg class="background-waves" width="1920" height="811" viewBox="0 0 1920 811" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="wave-top" d="M2383.5 344C2383.5 253.06 2308.71 165.691 2175.24 101.205C2041.8 36.7334 1860.78 0.499993 1672 0.5C1483.22 0.500007 1302.2 36.7334 1168.76 101.205C1035.29 165.691 960.5 253.06 960.5 344" stroke="url(#paint0_linear_0_1)"/>
+          <path id="wave-bottom" d="M-463.5 467C-463.5 557.94 -388.713 645.309 -255.242 709.795C-121.8 774.267 59.2213 810.5 248 810.5C436.779 810.5 617.8 774.267 751.243 709.795C884.713 645.309 959.5 557.94 959.5 467" stroke="url(#paint1_linear_0_1)"/>
+          <defs>
+              <linearGradient id="paint0_linear_0_1" x1="2048.23" y1="100.855" x2="983.07" y2="769.741" gradientUnits="userSpaceOnUse">
+                  <stop class="gradient-stop-1" stop-color="#111111"/>
+                  <stop class="gradient-stop-2" offset="1" stop-color="white"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_0_1" x1="-128.227" y1="710.145" x2="1041.39" y2="461.08" gradientUnits="userSpaceOnUse">
+                  <stop class="gradient-stop-3" stop-color="#111111"/>
+                  <stop class="gradient-stop-4" offset="1" stop-color="white"/>
+              </linearGradient>
+          </defs>
+      </svg>
+
+      <div class="footer-top" fade="up" data-delay="0.2">
+        <p>봐주셔서 감사합니다.</p>
+      </div>
+
+      <div class="footer-mid">
+        <span>Web</span>
+        <span>Uiux</span>
+        <span>Publisher</span>
+        <span>Design</span>
+      </div>
+      
+      <div class="footer-bottom">
+        <ul class="Contact-box">
+          <li class="Contact1"><a href="#">Mobile. 010 - 4996 - 1923</a></li>
+          <li class="Contact2"><a href="mailto:nadaon.430@gmail.com">Mail</a></li>
+          <li class="Contact3"><a href="https://notefolio.net/nadaon_430">notefolio</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!------------------- popup ------------------->
+  <div id="project-popup" class="popup-overlay">
+  <div class="popup-content">
+    <button class="popup-close">&times;</button>
+    
+    <div class="popup-body">
+      <div class="popup-img-area">
+        <img src="" id="popup-img" alt="Detail View">
+      </div>
+      
+      <div class="popup-text-area">
+        <div class="popup-tag-group">
+          <span class="popup-tag" id="popup-type">DESIGN</span>
+          <span class="popup-tag">PROJECT</span>
+        </div>
+        
+        <h2 id="popup-title">Project Title</h2>
+        
+        <div class="popup-divider" style="width:100%; height:1px; background:#111; margin:20px 0;"></div>
+        
+        <div class="popup-desc-box">
+          <h3>Design Intent</h3>
+          <p id="popup-desc">설명 내용이 들어가는 자리입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
