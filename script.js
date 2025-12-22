@@ -362,10 +362,10 @@ window.addEventListener("DOMContentLoaded", () => {
     if (dir === "left") from.x = 60;
     if (dir === "right") from.x = -60;
 
-    // ✅ 초기 상태 설정 (깜빡임 방지)
+    // 초기 상태 설정 (깜빡임 방지)
     gsap.set(el, from);
 
-    // ✅ scrollTrigger timeline with reverse
+    // scrollTrigger timeline with reverse
     gsap
       .timeline({
         scrollTrigger: {
@@ -386,7 +386,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // ✅ 이미지 로딩 후 트리거 갱신
+  // 이미지 로딩 후 트리거 갱신
   document.querySelectorAll("img").forEach((img) => {
     if (!img.complete) {
       img.addEventListener("load", () => ScrollTrigger.refresh(), {
@@ -398,13 +398,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ✅ 폰트 및 리사이즈 옵저버
+  // 폰트 및 리사이즈 옵저버
   if ("ResizeObserver" in window) {
     const ro = new ResizeObserver(() => ScrollTrigger.refresh());
     ro.observe(document.body);
   }
 
-  // ✅ prefers-reduced-motion 고려
+  // prefers-reduced-motion 고려
   ScrollTrigger.matchMedia({
     "(prefers-reduced-motion: reduce)": function () {
       gsap.set("[fade]", { opacity: 1, clearProps: "all" });
@@ -416,4 +416,90 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     setTimeout(() => ScrollTrigger.refresh(), 300);
   });
+});
+
+// 배너 애니메이션 
+window.addEventListener('load', function() {
+    const container = document.getElementById('canvas-container');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+    camera.position.z = 20; 
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    const sheets = [];
+    const sheetCount = 7; // 면의 개수
+
+    for (let i = 0; i < sheetCount; i++) {
+        // 아주 길고 좁은 면 생성 (가로 150, 세로 8)
+        const geometry = new THREE.PlaneGeometry(150, 8, 80, 20);
+        
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x737373, // 묵직한 회색
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.03 + (i * 0.02), // 겹칠수록 진해지게
+            depthWrite: false,
+        });
+
+        const sheet = new THREE.Mesh(geometry, material);
+        
+        // 가로로 길게 눕히기
+        sheet.rotation.x = Math.PI / 2.5; 
+        sheet.position.y = (i - sheetCount / 2) * 0.8; // 중앙에 조밀하게 모음
+        sheet.position.z = i * -1;
+
+        sheet.userData = {
+            speed: 0.2 + (i * 0.05),
+            offset: i * 0.8,
+            frequency: 0.12 // 파동의 촘촘함
+        };
+
+        scene.add(sheet);
+        sheets.push(sheet);
+    }
+
+    const clock = new THREE.Clock();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+
+        sheets.forEach((sheet) => {
+            const pos = sheet.geometry.attributes.position;
+            const { speed, offset, frequency } = sheet.userData;
+
+            for (let i = 0; i < pos.count; i++) {
+                const x = pos.getX(i);
+                const y = pos.getY(i);
+                
+                // 가로(x)축을 따라 흐르는 파동 계산
+                // noise는 면들이 서로 엉켜 보이게 만드는 불규칙한 움직임
+                const noise = Math.sin(y * 0.5 + time * speed);
+                const wave = Math.sin(x * frequency + time * speed + offset + noise);
+                
+                // 중앙 집중 효과: 양 끝으로 갈수록 파동이 작아짐
+                const distFromCenter = Math.abs(x) / 75;
+                const influence = Math.pow(Math.max(0, 1 - distFromCenter), 1.5);
+                
+                pos.setZ(i, wave * 4 * influence);
+            }
+            pos.needsUpdate = true;
+        });
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+    });
 });

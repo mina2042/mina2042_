@@ -171,7 +171,7 @@ img {
   height: 32px;
 }
 
-.roding-box img { 
+.loding-box img { 
   width: 30px;
   height: 32px;
 }
@@ -205,11 +205,26 @@ img {
   justify-content: center;
 }
 
+.con-1 > .banner-title {
+  z-index: 10;
+}
+
 .con-1 > .banner-title > p {
   font-family: 'Notoserif', serif;
-  font-weight: 100;
+  font-weight: 500;
   font-size: 60px;
   letter-spacing: 2px;
+}
+
+#canvas-container.visual-area {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 150vw !important; /* 가로로 길게 화면을 넘어가도록 */
+  height: 400px !important; /* 높이를 제한하여 중앙 띠 형태 유지 */
+  z-index: 1 !important;
+  pointer-events: none;
 }
 
 /* --------------------   profile   -------------------- */
