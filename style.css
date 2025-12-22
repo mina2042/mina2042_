@@ -360,6 +360,7 @@ img {
 .list-item-1 > .item-date {
   font-weight: 400;
   padding-bottom: 10.3px;
+  height: 40px;
 }
 
 .list-item-1 > .item-date1 {
@@ -370,7 +371,7 @@ img {
 .list-item-1 > .item-date2 {
   font-weight: 400;
   padding-bottom: 10px;
-  height: 20px;
+  height: 40px;
 }
 
 .list-item-2 {
@@ -384,7 +385,11 @@ img {
 }
 
 .list-item-2 > .item-description {
-  padding-bottom: 14px;
+  height: 40px;
+}
+
+.list-item-2 > .item-description2 {
+  height: 40px;
 }
 
 .list-item-2 > .item-description1 {
