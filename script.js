@@ -113,19 +113,16 @@ ScrollTrigger.create({
 });
 
 
-// -------------------- 5. 로딩 애니메이션 (배너 타이틀 정렬 및 헤더 복구 버전) --------------------
+// -------------------- 5. 로딩 애니메이션 (슬라이드 인 버전) --------------------
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
-        
-        const nameLetters = ['M', 'I', 'N', 'A','\u00A0', 'P','O','R','T','F','O','L','I','O'];
         const loadingOverlay = document.getElementById('loading-overlay');
         const loadingText = document.getElementById('loading-text'); 
         const loadingLineElement = document.getElementById('loading-line'); 
         const loadingLineSvg = document.getElementById('loading-line-svg');
         
-        // 대상 요소들
         const bannerTarget = document.querySelector('.banner-title > p');
-        const finalMinaLogo = document.getElementById('final-logo'); // 헤더 로고
+        const finalMinaLogo = document.getElementById('final-logo'); 
 
         let targetPos = { x: 0, y: 0 };
 
@@ -150,10 +147,11 @@ ScrollTrigger.create({
                 strokeDashoffset: lineLength
             });
 
-            // 초기 설정
-            loadingText.textContent = "";
+            // 초기 설정: 텍스트를 한 번에 넣고 왼쪽으로 살짝 밀어둠
+            loadingText.textContent = "MINA PORTFOLIO"; // 타자 대신 전체 텍스트 주입
             gsap.set(loadingText, { 
                 opacity: 0, 
+                x: -30, // 왼쪽에서 시작
                 left: "50%",
                 top: "50%",
                 xPercent: -50,
@@ -161,10 +159,9 @@ ScrollTrigger.create({
                 position: "fixed",
                 fontSize: "60px",
                 color: "white",
-                zIndex: 10001 // 오버레이보다 위
+                zIndex: 10001
             });
             
-            // 배너 글자와 헤더 로고를 초기에 숨김
             gsap.set(bannerTarget, { opacity: 0 }); 
             if (finalMinaLogo) gsap.set(finalMinaLogo, { opacity: 0 }); 
             
@@ -172,28 +169,29 @@ ScrollTrigger.create({
 
             const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-            // Phase 1: 라인 드리기
+            // Phase 1: 라인 그리기
             tl.to(loadingLineElement, { 
                 strokeDashoffset: 0, 
                 duration: 1.2
             });
 
-            // Phase 2: 라인 페이드아웃 및 타이핑
-            tl.to(loadingLineSvg, { opacity: 0, duration: 0.3 }, "+=0.2"); 
+            // Phase 2: 라인 사라지면서 텍스트가 왼쪽 -> 오른쪽으로 슬라이드하며 등장
+            tl.to(loadingLineSvg, { opacity: 0, duration: 0.3 }, "+=0.1"); 
             
-            nameLetters.forEach((letter, index) => {
-                tl.to(loadingText, { 
-                    opacity: 1, 
-                    duration: 0.05, 
-                    onStart: () => { loadingText.textContent += letter; } 
-                }, `StartText+=${index * 0.12}`); 
-            });
+            tl.to(loadingText, { 
+                opacity: 1, 
+                x: 0,           // 원래 중앙 위치로 (xPercent가 -50이므로 중앙 정렬 유지됨)
+                xPercent: -50,  // 중앙 정렬 보정
+                duration: 1.0, 
+                ease: "power2.out" 
+            }, "-=0.2");
 
-            // Phase 3: 배너 위치로 이동
-            tl.addLabel("MoveToBanner", "+=0.3");
+            // Phase 3: 배너 위치로 이동 (이후 로직은 동일)
+            tl.addLabel("MoveToBanner", "+=0.5");
             
             tl.to(loadingText, {
                 duration: 1.2, 
+                // 최종 목적지 계산 시 x:0으로 돌아온 상태에서 계산
                 x: () => targetPos.x - (window.innerWidth / 2),
                 y: () => targetPos.y - (window.innerHeight / 2),
                 fontSize: "60px", 
@@ -209,12 +207,10 @@ ScrollTrigger.create({
                 ease: "expo.inOut"
             }, "MoveToBanner");
 
-            // Phase 4: 오버레이 제거 및 모든 요소 노출 (헤더 로고 포함)
+            // Phase 4: 마무리
             tl.addLabel("Finish", "-=0.3");
-
             tl.to(bannerTarget, { opacity: 1, duration: 0.2 }, "Finish"); 
             
-            // ★ 여기서 헤더 로고를 다시 나타나게 합니다.
             if (finalMinaLogo) {
                 tl.to(finalMinaLogo, { opacity: 1, duration: 0.5 }, "Finish");
             }
