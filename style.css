@@ -34,7 +34,7 @@
 /* Noto sans KR ExtraLight */
 @font-face {
   font-family: 'Notosans';
-  src: url(./font/NotoSerifKR-ExtraLight.ttf) format('truetype');
+  src: url(./font/NotoSerifKR-ExtraLight.ttf) format('woff2');
   font-weight: 100;
   font-display: swap;
 }
@@ -42,37 +42,37 @@
 /* Noto Serif KR - 통합 설정 (이름 뒤 공백 제거 및 형식 수정) */
 @font-face {
   font-family: 'Notoserif'; 
-  src: url('./font/NotoSerifKR-ExtraLight.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-ExtraLight.ttf') format('woff2');
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
   font-family: 'Notoserif';
-  src: url('./font/NotoSerifKR-Light.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-Light.ttf') format('woff2');
   font-weight: 200;
   font-display: swap;
 }
 @font-face {
   font-family: 'Notoserif';
-  src: url('./font/NotoSerifKR-Regular.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-Regular.ttf') format('woff2');
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: 'Notoserif';
-  src: url('./font/NotoSerifKR-Medium.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-Medium.ttf') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Notoserif';
-  src: url('./font/NotoSerifKR-SemiBold.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-SemiBold.ttf') format('woff2');
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: 'Notoserif';
-  src: url('./font/NotoSerifKR-Bold.ttf') format('truetype');
+  src: url('./font/NotoSerifKR-Bold.ttf') format('woff2');
   font-weight: 600;
   font-display: swap;
 }
@@ -681,7 +681,7 @@ img {
   height: 1080px;
   padding: 100px 150px 100px 150px;
   background: url(./imgs/weave-branding.png);
-  background-size: 150%;  
+  background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
 }
@@ -1315,3 +1315,21 @@ footer .background-waves {
   stroke-dashoffset: 0;
 }
 
+/* 1. 이미지 렌더링 최적화 보완 */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 2. 팝업 영역 메모리 관리 (레이어 분리) */
+.popup-content {
+  will-change: transform;
+  contain: paint; /* 부모 요소 밖의 연산을 차단하여 성능 향상 */
+}
+
+/* 3. 배경 이미지 최적화 (150% 제거 제안) */
+#branding-2, #branding-3 {
+  background-size: cover; /* 150% 대신 이미지를 크게 만들고 cover를 쓰세요 */
+  background-attachment: scroll; /* fixed가 있다면 절대 사용 금지 */
+}
