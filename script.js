@@ -1,4 +1,4 @@
-// 1. 💡 마우스 오버 이미지 효과 (IIFE로 변수 완벽 격리)
+// 1. 마우스 오버 이미지 효과
 (function() {
     gsap.set(".list img.swipeimage", { yPercent: -50, xPercent: -50 });
 
@@ -42,7 +42,7 @@
     });
 })();
 
-// -------------------- 2. GSAP 스크롤 기반 헤더 숨김/노출 (IIFE로 변수 완벽 격리) --------------------
+// -------------------- 2. GSAP 스크롤 기반 헤더 숨김/노출 --------------------
 (function() {
     const headerScrollAnim = gsap.from('#header', { 
         y: "-100%", 
@@ -503,3 +503,19 @@ window.addEventListener('load', function() {
         renderer.setSize(container.offsetWidth, container.offsetHeight);
     });
 });
+
+// 300라인 근처 animate 함수 수정
+let animationId;
+function animate() {
+    animationId = requestAnimationFrame(animate);
+    
+    // 최적화: 캔버스가 화면에 보일 때만 렌더링
+    const rect = container.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return; // 화면 밖이면 연산 중단
+
+    const time = clock.getElapsedTime();
+    // ... 기존 sheets.forEach 로직 ...
+    renderer.render(scene, camera);
+}

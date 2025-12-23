@@ -34,7 +34,7 @@
 /* Noto sans KR ExtraLight */
 @font-face {
   font-family: 'Notosans';
-  src: url(./font/NotoSerifKR-ExtraLight.ttf) format('woff2');
+  src: url(./font/NotoSerifKR-ExtraLight.ttf) format('truetype');
   font-weight: 100;
   font-display: swap;
 }
@@ -84,7 +84,6 @@ a { text-decoration: none; color: inherit; }
 
 /* -------------------- 커스텀 -------------------- */
 .swipeimage, 
-.pop-up__thumb img, 
 #branding, #branding-2, #branding-3,
 .background-waves {
   will-change: transform, opacity;
@@ -109,7 +108,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  will-change: opacity;
 }
 
 #loading-line-svg {
@@ -129,6 +127,7 @@ img {
   font-weight: 100;
   color: white; 
   font-family: 'Notoserif', serif;
+  font-weight: 500;
   transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
 }
 
@@ -540,9 +539,6 @@ img {
   background-position: center; 
   background-repeat: no-repeat; 
   background-position: 100% center;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .con-4 > .branding-title-box {
@@ -688,9 +684,6 @@ img {
   background-size: 150%;  
   background-position: center; 
   background-repeat: no-repeat;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .con-5 > .branding-title-box-2 {
@@ -841,9 +834,6 @@ img {
   background-size: 150%;
   background-position: center; 
   background-repeat: no-repeat; 
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .con-6 > .branding-title-box {
@@ -1049,9 +1039,6 @@ img {
   object-fit: cover; 
   display: block;
   object-position: top;
-  will-change: transform;
-  image-rendering: -webkit-optimize-contrast;
-  transform: translateZ(0);
 }
 
 .pop-up__card:hover img {
@@ -1090,8 +1077,7 @@ img {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1269,6 +1255,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 .con-8 > .footer-bottom > .Contact1 > p {
@@ -1313,6 +1300,7 @@ footer .background-waves {
   z-index: 1; 
   pointer-events: none; 
   opacity: 0; 
+  contain: strict;
 }
 
 .con-8 > .footer-top, 
