@@ -257,7 +257,7 @@ img {
   width: 100%;
 }
 
-.info-1, .info-2, .info-3, .info-4, .info-5 {
+.info-1, .info-2, .info-3, .info-4, .info-5, .info-6 {
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -283,7 +283,7 @@ img {
   padding-top: 20px;
 }
 
-.info-5 {
+.info-6 {
   padding-top: 50px;
 }
 
@@ -295,13 +295,8 @@ img {
 .profile-info-box .contact-label-1 {
   font-weight: 600;
   font-size: 20px;
-  padding-right: 40px;
-}
-
-.profile-info-box .contact-label-2 {
-  font-weight: 600;
-  font-size: 20px;
-  padding-right: 22px;
+  display: inline-block;
+  width: 100px;
 }
 
 .profile-info-box .contact-label-3 {
